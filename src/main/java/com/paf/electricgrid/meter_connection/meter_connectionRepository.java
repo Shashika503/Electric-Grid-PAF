@@ -29,7 +29,7 @@ public class Meter_connectionRepository {
 
 }
 	
-	List<meter_connection> meter_connections;
+	List<Meter_connection> meter_connections;
 	
 	public Meter_connectionRepository() {
 		
@@ -49,46 +49,45 @@ public class Meter_connectionRepository {
 		
 		meter_connections = new ArrayList<>();
 		
-		meter_connection mc = meter_connection();
+		Meter_connection mc = Meter_connection();
 		
-		mc.setmc_id(1);
-		mc.setmc_type("industrial");
-		mc.setmc_phase_type("three-phase");
-		mc.setmc_capacity(5000);
-		mc.setmc_monthly_unit_usage(78);
-		mc.setmc_validity_status("active");
-		mc.setmc_power_distribution_status("on");
-		mc.setuser_acc_id(7896547);
-		mc.setbilling_id(8903456);
+		mc.setMc_id(1);
+		mc.setMc_type("industrial");
+		mc.setMc_phase_type("three-phase");
+		mc.setMc_capacity(5000);
+		mc.setMc_monthly_unit_usage(78);
+		mc.setMc_validity_status("active");
+		mc.setMc_power_distribution_status("on");
+		mc.setUser_acc_id(7896547);
+		mc.setBilling_id(8903456);
 		meter_connections.add(mc);
 	}
 	
-	public List<meter_connection> getAllMeterconnections(){
+	public List<Meter_connection> getAllMeterconnections(){
 		
 		return meter_connections;
 	}
 	
-	public Project createProject(Project p1) {
+	public Meter_connection createProject(Meter_connection mc) {
 		String output = "";
 		
 		// create a prepared statement
-		String insertSql = "INSERT INTO `projects`(`p_id`, `p_name`, `status`, `startDate`, `endDate`, `description`, `budget`, `price`, `researcher_id`, `sponsor_id`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String insertSql = "INSERT INTO `meter_connection`(`mc_id`, `mc_type`, `mc_phase_type`, `mc_capacity`, `mc_monthly_unit_usage`, `mc_validity_status`, `mc_power_distribution_status`, `user_acc_id`, `billing_id`) VALUES (?,?,?,?,?,?,?,?,?,?)";
 		Connection con = getconnection();
 		try {
 			
 			PreparedStatement st = con.prepareStatement(insertSql);
 			
 			// binding values
-			st.setInt(1, p1.p_id);
-			st.setString(2, p1.p_name);
-			st.setString(3, p1.status);
-			st.setString(4, p1.startDate);
-			st.setString(5, p1.endDate);
-			st.setString(6, p1.description);
-			st.setFloat(7, p1.budget);
-			st.setFloat(8, p1.price);
-			st.setInt(9, p1.researcher_id);
-			st.setInt(10, p1.sponsor_id);
+			st.setInt(1, mc.mc_id);
+			st.setString(2, mc.mc_type);
+			st.setString(3, mc.mc_phase_type);
+			st.setFloat(4, mc.mc_capacity);
+			st.setFloat(5, mc.mc_monthly_unit_usage);
+			st.setString(6, mc.mc_validity_status);
+			st.setString(7, mc.mc_power_distribution_status);
+			st.setInt(8, mc.user_acc_id);
+			st.setInt(9, mc.billing_id);
 			
 			// execute the statement
 			st.executeUpdate();
@@ -100,15 +99,15 @@ public class Meter_connectionRepository {
 			System.out.println(e.getMessage());
 		}
 		
-		projects.add(p1);
-		System.out.println(projects);
+		meter_connections.add(mc);
+		System.out.println(meter_connections);
 		
-		return (p1);
+		return (mc);
 	}
 
 	
 	
-	public String readProjects() {
+	public String readMeterConnections() {
 		String output = "";
 		
 		try {
@@ -119,42 +118,41 @@ public class Meter_connectionRepository {
 			{return "Error while connecting to the database for reading."; }
 			
 			// Prepare the html table to be displayed
-			output = "<table border='1'><tr><th>Project ID</th><th>Project Name</th><th>Status</th><th>Start Date</th><th>End Date</th><th>Description</th><th>Budget</th><th>Price</th><th>Researcher ID</th><th>Sponsor ID</th>" +
+			output = "<table border='1'><tr><th>Meter Connection Id</th><th>Mc Type</th><th>Mc Phase Type</th><th>Mc Capacity</th><th></th><th>Mc Monthly Units Usage</th><th>Mc Validity Status</th><th>Mc Power Distribution Status</th><th>User Acc Id</th><th>Billing Id</th>" +
 			"<th>Update</th><th>Remove</th></tr>";
-			String query = "SELECT * FROM `projects`";
+			String query = "SELECT * FROM `meter_connections`";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			// iterate through the rows in the result set
 			while (rs.next())
 			{
-				String p_id = Integer.toString(rs.getInt("p_id"));
-				String p_name = rs.getString("p_name");
-				String status = rs.getString("status");
-				String startDate = rs.getString("startDate");
-				String endDate = rs.getString("endDate");
-				String description = rs.getString("description");
-				String budget = Float.toString(rs.getFloat("budget"));
-				String price = Float.toString(rs.getFloat("price"));
-				String researcher_id = Integer.toString(rs.getInt("researcher_id"));
-				String sponsor_id = Integer.toString(rs.getInt("sponsor_id"));
+				String mc_id = Integer.toString(rs.getInt("mc_id"));
+				String mc_type = rs.getString("`mc_type");
+				String mc_phase_type = rs.getString("mc_phase_type`");
+				String mc_capacity = Float.toString(rs.getFloat("mc_capacity"));
+				String mc_monthly_unit_usage = Float.toString(rs.getFloat("mc_monthly_unit_usage"));
+				String mc_validity_status = rs.getString("mc_validity_status");
+				String mc_power_distribution_status = rs.getString("mc_power_distribution_status");
+				String user_acc_id = Integer.toString(rs.getInt("user_acc_id"));
+				String billing_id = Integer.toString(rs.getInt("billing_id"));
 				
 				// Add into the html table
-				output += "<tr><td>" + p_id + "</td>";
-				output += "<td>" + p_name + "</td>";
-				output += "<td>" + status + "</td>";
-				output += "<td>" + startDate + "</td>";
-				output += "<td>" + endDate + "</td>";
-				output += "<td>" + description + "</td>";
-				output += "<td>" + budget + "</td>";
-				output += "<td>" + price + "</td>";
-				output += "<td>" + researcher_id + "</td>";
-				output += "<td>" + sponsor_id + "</td>";
+				output += "<tr><td>" + mc_id + "</td>";
+				output += "<td>" + mc_type + "</td>";
+				output += "<td>" + mc_phase_type + "</td>";
+				output += "<td>" + mc_capacity + "</td>";
+				output += "<td>" + mc_monthly_unit_usage + "</td>";
+				output += "<td>" + mc_validity_status + "</td>";
+				output += "<td>" + mc_power_distribution_status + "</td>";
+				output += "<td>" + user_acc_id + "</td>";
+				output += "<td>" + billing_id + "</td>";
+				
 				
 				// buttons
 				output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"
 				+ "<td><form method='post' action='items.jsp'>"
 				+ "<input name='btnRemove' type='submit' value='Remove'class='btn btn-danger'>"
-				+ "<input name='itemID' type='hidden' value='" + p_id + "'>" + "</form></td></tr>";
+				+ "<input name='itemID' type='hidden' value='" +mc_id  + "'>" + "</form></td></tr>";
 			}
 			
 			//close the db connection
@@ -174,27 +172,26 @@ public class Meter_connectionRepository {
 	
 	
 	
-	public Project getprojectid(int p_id) {
-		String getsql = "SELECT * FROM `projects` WHERE `p_id` = '"+p_id+"' ";
-		Project pr = new Project();
+	public Meter_connection getmeterconnectionid(int mc_id) {
+		String getsql = "SELECT * FROM `meter_connection` WHERE `mc_id` = '"+mc_id+"' ";
+		 Meter_connection pr = new  Meter_connection();
 		Connection con = getconnection();
 		
 		try {
 			Statement st = con.createStatement();
-			ResultSet p1 = st.executeQuery(getsql);
+			ResultSet mc = st.executeQuery(getsql);
 			
-			while(p1.next()) {
+			while(mc.next()) {
 				
-				pr.setP_id(p1.getInt(1));
-				pr.setP_name(p1.getString(2));
-				pr.setStatus(p1.getString(3));
-				pr.setStartDate(p1.getString(4));
-				pr.setEndDate(p1.getString(5));
-				pr.setDescription(p1.getString(6));
-				pr.setBudget(p1.getFloat(7));
-				pr.setPrice(p1.getFloat(8));
-				pr.setResearcher_id(p1.getInt(9));
-				pr.setSponsor_id(p1.getInt(10));
+				pr.setMc_id(mc.getInt(1));
+				pr.setMc_type(mc.getString(2));
+				pr.setMc_phase_type(mc.getString(3));
+				pr.setMc_capacity(mc.getFloat(7));
+				pr.setMc_monthly_unit_usage(mc.getFloat(7));
+				pr.setMc_validity_status(mc.getString(6));
+				pr.setMc_power_distribution_status(mc.getString(4));
+				pr.setUser_acc_id(mc.getInt(9));
+				pr.setBilling_id(mc.getInt(10));
 				
 			}
 			
@@ -208,13 +205,13 @@ public class Meter_connectionRepository {
 	}
 
 	
-	public String deleteProject(int p_id) {
+	public String deleteMeterconnection(int mc_id) {
 		String output = "";
 		try {
 			Connection con = getconnection();
 			
-			String deleteProject = "DELETE FROM projects WHERE p_id = '"+p_id+"'";
-			PreparedStatement ps = con.prepareStatement(deleteProject);
+			String deleteMeterconnection = "DELETE FROM meter_connection WHERE mc_id = '"+mc_id+"'";
+			PreparedStatement ps = con.prepareStatement(deleteMeterconnection);
 			ps.execute();
 			
 			output = "Delete Successful";
@@ -226,14 +223,14 @@ public class Meter_connectionRepository {
 		return output;
 	}
 		
-	public String updateProject(Project project) {
+	public String updateMeterconnection(Meter_connection meter_connection) {
 		String output = "";
 		
 		try {
 			Connection con = getconnection();
 			
-			String updateProject = "UPDATE `projects` SET `p_id`='"+project.getP_id()+"',p_name='"+project.getP_name()+"',status='"+project.getStatus()+"',startDate='"+project.getStartDate()+"',endDate='"+project.getEndDate()+"',description='"+project.getDescription()+"',budget='"+project.getBudget()+"',price='"+project.getPrice()+"',researcher_id='"+project.getResearcher_id()+"',sponsor_id='"+project.getSponsor_id()+"' WHERE p_id='"+project.getP_id()+"'";
-			PreparedStatement st = con.prepareStatement(updateProject);
+			String updateMeterconnection  = "UPDATE `meter_connection` SET `mc_id`='"+meter_connection.getMc_id()+"',mc_type='"+meter_connection.getMc_type()+"',mc_phase_type='"+meter_connection.getMc_phase_type()+"',mc_capacity='"+meter_connection.getMc_capacity()+"',mc_monthly_unit_usage='"+meter_connection.getMc_monthly_unit_usage()+"',mc_validity_status='"+meter_connection.getMc_validity_status()+"',mc_power_distribution_status='"+meter_connection.getMc_power_distribution_status()+"',user_acc_id='"+meter_connection.getUser_acc_id()+"',billing_id='"+meter_connection.getBilling_id()+"' WHERE mc_id='"+meter_connection.getMc_id()+"'";
+			PreparedStatement st = con.prepareStatement(updateMeterconnection);
 
 			st.executeUpdate();
 			output = "Updated Successful";
