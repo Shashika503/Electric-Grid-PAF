@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Date;  
 import java.sql.*;
 
-public class meter_connectionRepository {
+public class Meter_connectionRepository {
 	
 	//A common method to connect to the DB
 	public Connection getconnection() {
@@ -31,7 +31,7 @@ public class meter_connectionRepository {
 	
 	List<meter_connection> meter_connections;
 	
-	public meter_connectionRepository() {
+	public Meter_connectionRepository() {
 		
 		
 		String url = "Jdbc:mysql://localhost:3306/electric_grid";
