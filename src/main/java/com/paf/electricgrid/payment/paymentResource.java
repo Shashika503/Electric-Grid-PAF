@@ -63,14 +63,14 @@ public class paymentResource {
 		return pr.updatePayment(p1);
 	}
 	
-	//@GET
+	@GET
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Payment> getAllPayments() {	
 		return pr.getAllPayment();
 	} 
 	
-	//@GET
+	@GET
 	@Path("/read")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String readPayRecords() {
