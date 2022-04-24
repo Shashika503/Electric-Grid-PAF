@@ -9,7 +9,7 @@ public class PaymentRepository {
 		
 		Connection con = null;
 		
-		String url = "Jdbc:mysql://localhost:8090/electric_grid";
+		String url = "Jdbc:mysql://localhost:8070/electric_grid";
 		String username = "root";
 		String password = "";
 		
@@ -35,10 +35,10 @@ public class PaymentRepository {
 		p1.setPaymentId(123);
 		p1.setAmount(5000);
 		p1.setPayDate("Cash");
-		p1.setCardHolder("Alwis");
-		p1.setCardNo("4563 5678 2345 1234");
+		p1.setCardHolder("Queensx");
+		p1.setCardNo("4567 5679 2343 1295");
 		p1.setCvv(145);
-		p1.setExpDate("12-23");
+		p1.setExpDate("12-25");
 		
 		
 		payments.add(p1);
