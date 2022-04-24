@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 //For JSON
 import com.google.gson.*;
 
-
+import modle.Users.*;
 
 //For XML
 import org.jsoup.*;
@@ -22,7 +22,7 @@ public class UsersServices {
 	/*
 	 * initialize single object from Users class
 	 */
-	UsersServices  usersobj = new UsersServices();
+	Users  usersobj = new Users();
 
 
 	/*
