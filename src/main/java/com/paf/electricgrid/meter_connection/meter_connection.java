@@ -2,83 +2,79 @@ package com.paf.electricgrid.meter_connection;
 
 public class Meter_connection {
 	
-	public int p_id;
-	public String p_name;
-	public String status;
-	public String startDate;
-	public String endDate;
-	public String description;
-	public float budget;
-	public float price;
-	public int researcher_id;
-	public int sponsor_id;
-	public int getP_id() {
-		return p_id;
+	public int mc_id;
+	public String mc_type;
+	public String mc_phase_type;
+	public float mc_capacity;
+	public float mc_monthly_unit_usage;
+	public String mc_validity_status;
+	public String mc_power_distribution_status;
+	public int user_acc_id;
+	public int billing_id;
+	public int getMc_id() {
+		return mc_id;
 	}
-	public void setP_id(int p_id) {
-		this.p_id = p_id;
+	public void setMc_id(int mc_id) {
+		this.mc_id = mc_id;
 	}
-	public String getP_name() {
-		return p_name;
+	public String getMc_type() {
+		return mc_type;
 	}
-	public void setP_name(String p_name) {
-		this.p_name = p_name;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public String getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-	public String getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public float getBudget() {
-		return budget;
-	}
-	public void setBudget(float budget) {
-		this.budget = budget;
-	}
-	public float getPrice() {
-		return price;
-	}
-	public void setPrice(float price) {
-		this.price = price;
-	}
-	public int getResearcher_id() {
-		return researcher_id;
-	}
-	public void setResearcher_id(int researcher_id) {
-		this.researcher_id = researcher_id;
-	}
-	public int getSponsor_id() {
-		return sponsor_id;
-	}
-	public void setSponsor_id(int sponsor_id) {
-		this.sponsor_id = sponsor_id;
+	public void setMc_type(String mc_type) {
+		this.mc_type = mc_type;
 	}
 	
+	public String getMc_phase_type() {
+		return mc_phase_type;
+	}
+	public void setMc_phase_type(String mc_phase_type) {
+		this.mc_phase_type = mc_phase_type;
+	}
+	public float getMc_capacity() {
+		return mc_capacity;
+	}
+	public void setMc_capacity(float mc_capacity) {
+		this.mc_capacity = mc_capacity;
+	}
+	public float getMc_monthly_unit_usage() {
+		return mc_monthly_unit_usage;
+	}
+	public void setMc_monthly_unit_usage(float mc_monthly_unit_usage) {
+		this.mc_monthly_unit_usage = mc_monthly_unit_usage;
+	}
+	public String getMc_validity_status() {
+		return mc_validity_status;
+	}
+	public void setMc_validity_status(String mc_validity_status) {
+		this.mc_validity_status = mc_validity_status;
+	}
+	public String getMc_power_distribution_status() {
+		return mc_power_distribution_status;
+	}
+	public void setMc_power_distribution_status(String mc_power_distribution_status) {
+		this.mc_power_distribution_status = mc_power_distribution_status;
+	}
+	public int getUser_acc_id() {
+		return user_acc_id;
+	}
+	public void setUser_acc_id(int user_acc_id) {
+		this.user_acc_id = user_acc_id;
+	}
+	public int getBilling_id() {
+		return billing_id;
+	}
+	public void setBilling_id(int billing_id) {
+		this.billing_id = billing_id;
+	}
 	
 	@Override
 	public String toString() {
-		return "Project [p_id=" + p_id + ", p_name=" + p_name + ", status=" + status + ", startDate=" + startDate
-				+ ", endDate=" + endDate + ", description=" + description + ", budget=" + budget + ", price=" + price
-				+ ", researcher_id=" + researcher_id + ", sponsor_id=" + sponsor_id + "]";
+		return "Meter_connection [mc_id=" + mc_id + ", mc_type=" + mc_type + ", mc_phase_type=" + mc_phase_type + ", mc_capacity=" +mc_capacity
+				+ ", mc_monthly_unit_usage=" + mc_monthly_unit_usage + ", mc_validity_status=" + mc_validity_status + ", mc_power_distribution_status=" + mc_power_distribution_status + ", user_acc_id=" + user_acc_id
+				+ ", billing_id=" + billing_id + " ]";
+	
+	
+
 	}
 	
 }
