@@ -17,12 +17,12 @@ import org.jsoup.parser.*;
 import org.jsoup.nodes.Document;
 
 @Path("/Users")
-public class UsersService {
+public class UsersServices {
 
 	/*
 	 * initialize single object from Users class
 	 */
-	Users  usersobj = new Users();
+	UsersServices  usersobj = new UsersServices();
 
 
 	/*
