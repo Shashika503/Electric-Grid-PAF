@@ -48,7 +48,7 @@ public class paymentResource {
 		
 	}
 	
-	//@DELETE
+	@DELETE
 	@Path("/deletePayment/{paymentID}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String deletePayment(@PathParam("paymentID") int paymentId) {
