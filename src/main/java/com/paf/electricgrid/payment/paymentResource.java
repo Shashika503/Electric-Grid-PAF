@@ -28,7 +28,7 @@ public class paymentResource {
 		
 	}
 	
-	//@POST
+	@POST
 	@Path("/payment")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Payment createPayment(Payment p1) {
@@ -36,7 +36,7 @@ public class paymentResource {
 		return pr.createPayment(p1);
 	}
 	
-	//@GET
+	@GET
 	@Path("/payment/{paymentId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getPayment(@PathParam("paymentId") String paymentId) {   //***
