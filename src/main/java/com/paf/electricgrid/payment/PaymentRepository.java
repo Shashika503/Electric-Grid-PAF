@@ -9,7 +9,7 @@ public class PaymentRepository {
 		
 		Connection con = null;
 		
-		String url = "Jdbc:mysql://localhost:8070/electric_grid";
+		String url = "Jdbc:mysql://localhost:8090/electric_grid";
 		String username = "root";
 		String password = "";
 		
