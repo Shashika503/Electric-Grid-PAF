@@ -55,7 +55,7 @@ public class paymentResource {
 		return pr.deletePayment(paymentId);
 	}
 	
-	//@PUT
+	@PUT
 	@Path("/updatePayment")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
