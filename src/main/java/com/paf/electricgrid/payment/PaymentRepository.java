@@ -36,9 +36,9 @@ public class PaymentRepository {
 		p1.setAmount(5000);
 		p1.setPayDate("Cash");
 		p1.setCardHolder("Queensx");
-		p1.setCardNo("4567 5679 2343 1295");
+		p1.setCardNo("4567 5879 2643 7395");
 		p1.setCvv(145);
-		p1.setExpDate("12-25");
+		p1.setExpDate("12-75");
 		
 		
 		payments.add(p1);
