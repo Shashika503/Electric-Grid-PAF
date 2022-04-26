@@ -49,7 +49,7 @@ public class Meter_connectionRepository {
 		
 		meter_connections = new ArrayList<>();
 		
-		Meter_connection mc = Meter_connection();
+		Meter_connection mc = new Meter_connection();
 		
 		mc.setMc_id(1);
 		mc.setMc_type("industrial");
@@ -68,7 +68,7 @@ public class Meter_connectionRepository {
 		return meter_connections;
 	}
 	
-	public Meter_connection createProject(Meter_connection mc) {
+	public Meter_connection createMeterconnection(Meter_connection mc) {
 		String output = "";
 		
 		// create a prepared statement
